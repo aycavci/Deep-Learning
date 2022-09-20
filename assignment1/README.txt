@@ -1,0 +1,1 @@
+You should open DL_A1.ipynb file in Google Collab environment, then run each cell in order. No need to install any dependencies, hence, we have not included requirements.txt file.
