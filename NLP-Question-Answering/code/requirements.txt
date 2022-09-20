@@ -1,0 +1,6 @@
+transformers
+datasets
+tensorflow
+numpy
+matplotlib
+tqdm

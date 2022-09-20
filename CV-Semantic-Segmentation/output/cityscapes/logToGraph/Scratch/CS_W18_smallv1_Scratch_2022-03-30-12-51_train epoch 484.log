@@ -1,0 +1,328 @@
+2022-03-30 12:51:24,478 Namespace(cfg='experiments/CS_W18_smallv1_Scratch.yaml', seed=304, local_rank=0, opts=[])
+2022-03-30 12:51:24,478 AUTO_RESUME: False
+CUDNN:
+  BENCHMARK: True
+  DETERMINISTIC: False
+  ENABLED: True
+DATASET:
+  DATASET: cityscapes
+  EXTRA_TRAIN_SET: 
+  NUM_CLASSES: 19
+  ROOT: data/
+  TEST_SET: list/cityscapes/val.lst
+  TRAIN_SET: list/cityscapes/train.lst
+DEBUG:
+  DEBUG: False
+  SAVE_BATCH_IMAGES_GT: False
+  SAVE_BATCH_IMAGES_PRED: False
+  SAVE_HEATMAPS_GT: False
+  SAVE_HEATMAPS_PRED: False
+GPUS: (0,)
+LOG_DIR: log
+LOSS:
+  BALANCE_WEIGHTS: [1]
+  CLASS_BALANCE: True
+  OHEMKEEP: 131072
+  OHEMTHRES: 0.9
+  USE_OHEM: False
+MODEL:
+  ALIGN_CORNERS: True
+  EXTRA:
+    FINAL_CONV_KERNEL: 1
+    STAGE1:
+      BLOCK: BOTTLENECK
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [1]
+      NUM_CHANNELS: [32]
+      NUM_MODULES: 1
+      NUM_RANCHES: 1
+    STAGE2:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2]
+      NUM_BRANCHES: 2
+      NUM_CHANNELS: [16, 32]
+      NUM_MODULES: 1
+    STAGE3:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2, 2]
+      NUM_BRANCHES: 3
+      NUM_CHANNELS: [16, 32, 64]
+      NUM_MODULES: 1
+    STAGE4:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2, 2, 2]
+      NUM_BRANCHES: 4
+      NUM_CHANNELS: [16, 32, 64, 128]
+      NUM_MODULES: 1
+  NAME: seg_hrnet
+  NUM_OUTPUTS: 1
+  OCR:
+    DROPOUT: 0.05
+    KEY_CHANNELS: 256
+    MID_CHANNELS: 512
+    SCALE: 1
+  PRETRAINED: 
+OUTPUT_DIR: output
+PIN_MEMORY: True
+PRINT_FREQ: 100
+RANK: 0
+TEST:
+  BASE_SIZE: 2048
+  BATCH_SIZE_PER_GPU: 3
+  FLIP_TEST: False
+  IMAGE_SIZE: [2048, 1024]
+  MODEL_FILE: 
+  MULTI_SCALE: False
+  NUM_SAMPLES: 0
+  OUTPUT_INDEX: -1
+  SCALE_LIST: [1]
+TRAIN:
+  BASE_SIZE: 2048
+  BATCH_SIZE_PER_GPU: 16
+  BEGIN_EPOCH: 0
+  DOWNSAMPLERATE: 1
+  END_EPOCH: 484
+  EXTRA_EPOCH: 0
+  EXTRA_LR: 0.001
+  FLIP: True
+  FREEZE_EPOCHS: -1
+  FREEZE_LAYERS: 
+  IGNORE_LABEL: 255
+  IMAGE_SIZE: [1024, 512]
+  LR: 0.01
+  LR_FACTOR: 0.1
+  LR_STEP: [90, 110]
+  MOMENTUM: 0.9
+  MULTI_SCALE: True
+  NESTEROV: False
+  NONBACKBONE_KEYWORDS: []
+  NONBACKBONE_MULT: 10
+  NUM_SAMPLES: 0
+  OPTIMIZER: sgd
+  RANDOM_BRIGHTNESS: False
+  RANDOM_BRIGHTNESS_SHIFT_VALUE: 10
+  RESUME: True
+  SCALE_FACTOR: 16
+  SHUFFLE: True
+  WD: 0.0005
+WORKERS: 3
+2022-03-30 12:51:24,506 => init weights from normal distribution
+2022-03-30 12:51:24,764 => loaded checkpoint (epoch 422)
+2022-03-30 12:51:34,289 Epoch: [422/484] Iter:[0/185], Time: 9.52, lr: [0.0015732281006142932], Loss: 0.152403
+2022-03-30 12:52:49,832 Epoch: [422/484] Iter:[100/185], Time: 0.84, lr: [0.0015608782793948527], Loss: 0.185102
+2022-03-30 12:53:54,071 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_422.pth.tar
+2022-03-30 12:53:59,113 Epoch: [423/484] Iter:[0/185], Time: 4.59, lr: [0.0015503723915764117], Loss: 0.162676
+2022-03-30 12:55:15,561 Epoch: [423/484] Iter:[100/185], Time: 0.80, lr: [0.0015380023836356795], Loss: 0.173225
+2022-03-30 12:56:19,932 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_423.pth.tar
+2022-03-30 12:56:24,827 Epoch: [424/484] Iter:[0/185], Time: 4.56, lr: [0.0015274791816692471], Loss: 0.143620
+2022-03-30 12:57:41,761 Epoch: [424/484] Iter:[100/185], Time: 0.81, lr: [0.0015150886180015572], Loss: 0.184156
+2022-03-30 12:58:46,156 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_424.pth.tar
+2022-03-30 12:58:51,143 Epoch: [425/484] Iter:[0/185], Time: 4.55, lr: [0.0015045477827403566], Loss: 0.277003
+2022-03-30 13:00:07,660 Epoch: [425/484] Iter:[100/185], Time: 0.80, lr: [0.0014921362812446994], Loss: 0.178967
+2022-03-30 13:01:12,520 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_425.pth.tar
+2022-03-30 13:01:17,562 Epoch: [426/484] Iter:[0/185], Time: 4.56, lr: [0.0014815774821195626], Loss: 0.176877
+2022-03-30 13:02:33,866 Epoch: [426/484] Iter:[100/185], Time: 0.80, lr: [0.0014691446469017428], Loss: 0.173436
+2022-03-30 13:03:37,826 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_426.pth.tar
+2022-03-30 13:03:42,818 Epoch: [427/484] Iter:[0/185], Time: 4.54, lr: [0.001458567541307135], Loss: 0.173571
+2022-03-30 13:05:00,316 Epoch: [427/484] Iter:[100/185], Time: 0.81, lr: [0.0014461129619318814], Loss: 0.169571
+2022-03-30 13:06:04,512 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_427.pth.tar
+2022-03-30 13:06:09,422 Epoch: [428/484] Iter:[0/185], Time: 4.48, lr: [0.001435517194567526], Loss: 0.154441
+2022-03-30 13:07:26,096 Epoch: [428/484] Iter:[100/185], Time: 0.81, lr: [0.0014230404452560159], Loss: 0.172784
+2022-03-30 13:08:30,190 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_428.pth.tar
+2022-03-30 13:08:35,220 Epoch: [429/484] Iter:[0/185], Time: 4.62, lr: [0.0014124256474200181], Loss: 0.157334
+2022-03-30 13:09:51,697 Epoch: [429/484] Iter:[100/185], Time: 0.80, lr: [0.0013999262861877587], Loss: 0.172015
+2022-03-30 13:10:55,974 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_429.pth.tar
+2022-03-30 13:11:00,922 Epoch: [430/484] Iter:[0/185], Time: 4.57, lr: [0.0013892920750167245], Loss: 0.112358
+2022-03-30 13:12:17,981 Epoch: [430/484] Iter:[100/185], Time: 0.81, lr: [0.0013767696427461954], Loss: 0.193678
+2022-03-30 13:13:22,043 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_430.pth.tar
+2022-03-30 13:13:27,036 Epoch: [431/484] Iter:[0/185], Time: 4.58, lr: [0.0013661156203973032], Loss: 0.212787
+2022-03-30 13:14:43,960 Epoch: [431/484] Iter:[100/185], Time: 0.81, lr: [0.0013535696398390773], Loss: 0.199971
+2022-03-30 13:15:48,376 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_431.pth.tar
+2022-03-30 13:15:53,419 Epoch: [432/484] Iter:[0/185], Time: 4.65, lr: [0.0013428953926084735], Loss: 0.270537
+2022-03-30 13:17:10,156 Epoch: [432/484] Iter:[100/185], Time: 0.81, lr: [0.0013303253673038456], Loss: 0.190233
+2022-03-30 13:18:14,460 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_432.pth.tar
+2022-03-30 13:30:35,004 0 [0.9678434  0.77087834 0.88656761 0.38530126 0.44837125 0.52003702
+ 0.4975502  0.643089   0.90798899 0.55657809 0.93206188 0.71217736
+ 0.43426003 0.9013452  0.34246212 0.55576978 0.20532776 0.39027022
+ 0.65826863] 0.6166393748137571
+2022-03-30 13:30:35,063 Loss: 0.190, MeanIU:  0.6166, Best_mIoU:  0.6166
+2022-03-30 13:30:35,063 [0.9678434  0.77087834 0.88656761 0.38530126 0.44837125 0.52003702
+ 0.4975502  0.643089   0.90798899 0.55657809 0.93206188 0.71217736
+ 0.43426003 0.9013452  0.34246212 0.55576978 0.20532776 0.39027022
+ 0.65826863]
+2022-03-30 13:30:40,017 Epoch: [433/484] Iter:[0/185], Time: 4.64, lr: [0.0013196304646751007], Loss: 0.128119
+2022-03-30 13:31:56,769 Epoch: [433/484] Iter:[100/185], Time: 0.81, lr: [0.0013070358777923887], Loss: 0.187555
+2022-03-30 13:33:02,549 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_433.pth.tar
+2022-03-30 13:33:07,472 Epoch: [434/484] Iter:[0/185], Time: 4.51, lr: [0.00129631987140794], Loss: 0.179902
+2022-03-30 13:34:24,366 Epoch: [434/484] Iter:[100/185], Time: 0.81, lr: [0.0012837001844836868], Loss: 0.187027
+2022-03-30 13:35:29,479 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_434.pth.tar
+2022-03-30 13:35:34,488 Epoch: [435/484] Iter:[0/185], Time: 4.60, lr: [0.0012729626070314018], Loss: 0.200877
+2022-03-30 13:36:51,850 Epoch: [435/484] Iter:[100/185], Time: 0.81, lr: [0.001260317258606613], Loss: 0.190121
+2022-03-30 13:37:57,075 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_435.pth.tar
+2022-03-30 13:38:01,977 Epoch: [436/484] Iter:[0/185], Time: 4.53, lr: [0.0012495576226125363], Loss: 0.214531
+2022-03-30 13:39:19,250 Epoch: [436/484] Iter:[100/185], Time: 0.81, lr: [0.0012368860267528406], Loss: 0.184981
+2022-03-30 13:40:24,217 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_436.pth.tar
+2022-03-30 13:40:29,143 Epoch: [437/484] Iter:[0/185], Time: 4.58, lr: [0.0012261038232701245], Loss: 0.161655
+2022-03-30 13:41:46,860 Epoch: [437/484] Iter:[100/185], Time: 0.82, lr: [0.0012134053679573053], Loss: 0.181208
+2022-03-30 13:42:51,716 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_437.pth.tar
+2022-03-30 13:42:56,928 Epoch: [438/484] Iter:[0/185], Time: 4.74, lr: [0.001202600065139951], Loss: 0.244830
+2022-03-30 13:44:16,216 Epoch: [438/484] Iter:[100/185], Time: 0.83, lr: [0.0011898741105206359], Loss: 0.188669
+2022-03-30 13:45:20,524 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_438.pth.tar
+2022-03-30 13:45:25,598 Epoch: [439/484] Iter:[0/185], Time: 4.64, lr: [0.0011790451520691976], Loss: 0.134571
+2022-03-30 13:46:42,980 Epoch: [439/484] Iter:[100/185], Time: 0.81, lr: [0.001166291028544591], Loss: 0.187148
+2022-03-30 13:47:49,212 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_439.pth.tar
+2022-03-30 13:47:54,182 Epoch: [440/484] Iter:[0/185], Time: 4.58, lr: [0.001155437832009219], Loss: 0.154303
+2022-03-30 13:49:12,144 Epoch: [440/484] Iter:[100/185], Time: 0.82, lr: [0.0011426548381475022], Loss: 0.187089
+2022-03-30 13:50:17,277 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_440.pth.tar
+2022-03-30 13:50:22,374 Epoch: [441/484] Iter:[0/185], Time: 4.67, lr: [0.0011317767930716567], Loss: 0.168958
+2022-03-30 13:51:39,714 Epoch: [441/484] Iter:[100/185], Time: 0.81, lr: [0.0011189641933221195], Loss: 0.183921
+2022-03-30 13:52:45,323 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_441.pth.tar
+2022-03-30 13:52:50,479 Epoch: [442/484] Iter:[0/185], Time: 4.73, lr: [0.001108060659207932], Loss: 0.185066
+2022-03-30 13:54:07,338 Epoch: [442/484] Iter:[100/185], Time: 0.81, lr: [0.0010952176813928507], Loss: 0.182284
+2022-03-30 13:55:12,458 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_442.pth.tar
+2022-03-30 13:55:17,436 Epoch: [443/484] Iter:[0/185], Time: 4.63, lr: [0.0010842879854662689], Loss: 0.147390
+2022-03-30 13:56:36,153 Epoch: [443/484] Iter:[100/185], Time: 0.83, lr: [0.0010714138180229938], Loss: 0.183287
+2022-03-30 13:57:41,643 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_443.pth.tar
+2022-03-30 13:57:46,757 Epoch: [444/484] Iter:[0/185], Time: 4.69, lr: [0.0010604572527736376], Loss: 0.175963
+2022-03-30 13:59:04,254 Epoch: [444/484] Iter:[100/185], Time: 0.82, lr: [0.0010475510417151776], Loss: 0.185031
+2022-03-30 14:00:09,394 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_444.pth.tar
+2022-03-30 14:00:14,346 Epoch: [445/484] Iter:[0/185], Time: 4.61, lr: [0.0010365668621819106], Loss: 0.189887
+2022-03-30 14:01:31,640 Epoch: [445/484] Iter:[100/185], Time: 0.81, lr: [0.0010236277077393487], Loss: 0.179549
+2022-03-30 14:02:36,999 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_445.pth.tar
+2022-03-30 14:02:42,093 Epoch: [446/484] Iter:[0/185], Time: 4.72, lr: [0.0010126151285080422], Loss: 0.216155
+2022-03-30 14:03:59,834 Epoch: [446/484] Iter:[100/185], Time: 0.82, lr: [0.0009996420814122838], Loss: 0.186322
+2022-03-30 14:05:05,068 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_446.pth.tar
+2022-03-30 14:05:10,277 Epoch: [447/484] Iter:[0/185], Time: 4.76, lr: [0.0009886002732868004], Loss: 0.209099
+2022-03-30 14:06:28,210 Epoch: [447/484] Iter:[100/185], Time: 0.82, lr: [0.0009755923306401349], Loss: 0.188865
+2022-03-30 14:07:32,534 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_447.pth.tar
+2022-03-30 14:07:37,543 Epoch: [448/484] Iter:[0/185], Time: 4.58, lr: [0.0009645204169410678], Loss: 0.206007
+2022-03-30 14:08:54,604 Epoch: [448/484] Iter:[100/185], Time: 0.81, lr: [0.0009514765176207192], Loss: 0.187732
+2022-03-30 14:09:59,420 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_448.pth.tar
+2022-03-30 14:10:04,355 Epoch: [449/484] Iter:[0/185], Time: 4.59, lr: [0.0009403735700586821], Loss: 0.141807
+2022-03-30 14:11:21,991 Epoch: [449/484] Iter:[100/185], Time: 0.82, lr: [0.0009272925895844584], Loss: 0.188443
+2022-03-30 14:12:26,689 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_449.pth.tar
+2022-03-30 14:12:31,680 Epoch: [450/484] Iter:[0/185], Time: 4.62, lr: [0.0009161576236452944], Loss: 0.314869
+2022-03-30 14:13:48,740 Epoch: [450/484] Iter:[100/185], Time: 0.81, lr: [0.0009030383684313393], Loss: 0.182868
+2022-03-30 14:14:52,996 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_450.pth.tar
+2022-03-30 14:14:58,016 Epoch: [451/484] Iter:[0/185], Time: 4.60, lr: [0.000891870338199348], Loss: 0.119589
+2022-03-30 14:16:15,180 Epoch: [451/484] Iter:[100/185], Time: 0.81, lr: [0.0008787115390952753], Loss: 0.179482
+2022-03-30 14:17:20,404 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_451.pth.tar
+2022-03-30 14:17:25,445 Epoch: [452/484] Iter:[0/185], Time: 4.68, lr: [0.0008675093314266722], Loss: 0.130189
+2022-03-30 14:18:42,929 Epoch: [452/484] Iter:[100/185], Time: 0.82, lr: [0.000854309636435401], Loss: 0.172442
+2022-03-30 14:19:48,184 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_452.pth.tar
+2022-03-30 14:31:48,511 0 [0.96874883 0.77435678 0.88885683 0.38521986 0.44088204 0.53522178
+ 0.51919013 0.65801122 0.91008659 0.56296521 0.92618036 0.71586213
+ 0.45247026 0.91100918 0.38730702 0.55832301 0.24039676 0.37846501
+ 0.6787495 ] 0.6259106583066907
+2022-03-30 14:31:48,564 Loss: 0.187, MeanIU:  0.6259, Best_mIoU:  0.6259
+2022-03-30 14:31:48,564 [0.96874883 0.77435678 0.88885683 0.38521986 0.44088204 0.53522178
+ 0.51919013 0.65801122 0.91008659 0.56296521 0.92618036 0.71586213
+ 0.45247026 0.91100918 0.38730702 0.55832301 0.24039676 0.37846501
+ 0.6787495 ]
+2022-03-30 14:31:53,574 Epoch: [453/484] Iter:[0/185], Time: 4.66, lr: [0.0008430720643773877], Loss: 0.187348
+2022-03-30 14:33:10,010 Epoch: [453/484] Iter:[100/185], Time: 0.81, lr: [0.0008298300304149372], Loss: 0.176660
+2022-03-30 14:34:14,560 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_453.pth.tar
+2022-03-30 14:34:19,502 Epoch: [454/484] Iter:[0/185], Time: 4.61, lr: [0.0008185558257448763], Loss: 0.225762
+2022-03-30 14:35:36,791 Epoch: [454/484] Iter:[100/185], Time: 0.81, lr: [0.0008052699092801126], Loss: 0.182332
+2022-03-30 14:36:41,422 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_454.pth.tar
+2022-03-30 14:36:46,444 Epoch: [455/484] Iter:[0/185], Time: 4.63, lr: [0.0007939577140135427], Loss: 0.232868
+2022-03-30 14:38:03,421 Epoch: [455/484] Iter:[100/185], Time: 0.81, lr: [0.0007806262603920125], Loss: 0.186590
+2022-03-30 14:39:08,070 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_455.pth.tar
+2022-03-30 14:39:13,134 Epoch: [456/484] Iter:[0/185], Time: 4.66, lr: [0.0007692746170760122], Loss: 0.123191
+2022-03-30 14:40:30,004 Epoch: [456/484] Iter:[100/185], Time: 0.81, lr: [0.0007558958482895102], Loss: 0.176944
+2022-03-30 14:41:35,258 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_456.pth.tar
+2022-03-30 14:41:40,365 Epoch: [457/484] Iter:[0/185], Time: 4.73, lr: [0.0007445031888574533], Loss: 0.159689
+2022-03-30 14:42:56,665 Epoch: [457/484] Iter:[100/185], Time: 0.80, lr: [0.0007310751894674844], Loss: 0.187052
+2022-03-30 14:44:02,292 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_457.pth.tar
+2022-03-30 14:44:07,407 Epoch: [458/484] Iter:[0/185], Time: 4.70, lr: [0.0007196398223800099], Loss: 0.218793
+2022-03-30 14:45:24,494 Epoch: [458/484] Iter:[100/185], Time: 0.81, lr: [0.0007061605232352094], Loss: 0.182114
+2022-03-30 14:46:29,505 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_458.pth.tar
+2022-03-30 14:46:34,566 Epoch: [459/484] Iter:[0/185], Time: 4.65, lr: [0.0006946806185667451], Loss: 0.167012
+2022-03-30 14:47:51,695 Epoch: [459/484] Iter:[100/185], Time: 0.81, lr: [0.0006811477778670516], Loss: 0.183846
+2022-03-30 14:48:56,102 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_459.pth.tar
+2022-03-30 14:49:00,962 Epoch: [460/484] Iter:[0/185], Time: 4.54, lr: [0.0006696213499130277], Loss: 0.152674
+2022-03-30 14:50:16,842 Epoch: [460/484] Iter:[100/185], Time: 0.80, lr: [0.0006560325310604568], Loss: 0.177426
+2022-03-30 14:51:20,189 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_460.pth.tar
+2022-03-30 14:51:25,158 Epoch: [461/484] Iter:[0/185], Time: 4.57, lr: [0.0006444574179307085], Loss: 0.139002
+2022-03-30 14:52:41,074 Epoch: [461/484] Iter:[100/185], Time: 0.80, lr: [0.0006308099634589836], Loss: 0.183405
+2022-03-30 14:53:44,135 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_461.pth.tar
+2022-03-30 14:53:49,031 Epoch: [462/484] Iter:[0/185], Time: 4.47, lr: [0.0006191838029789736], Loss: 0.150150
+2022-03-30 14:55:04,959 Epoch: [462/484] Iter:[100/185], Time: 0.80, lr: [0.0006054748036594109], Loss: 0.171537
+2022-03-30 14:56:08,358 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_462.pth.tar
+2022-03-30 14:56:13,277 Epoch: [463/484] Iter:[0/185], Time: 4.55, lr: [0.0005937950047097665], Loss: 0.171919
+2022-03-30 14:57:28,899 Epoch: [463/484] Iter:[100/185], Time: 0.80, lr: [0.0005800212626704306], Loss: 0.173188
+2022-03-30 14:58:31,921 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_463.pth.tar
+2022-03-30 14:58:36,922 Epoch: [464/484] Iter:[0/185], Time: 4.57, lr: [0.0005682849708384633], Loss: 0.169516
+2022-03-30 14:59:52,547 Epoch: [464/484] Iter:[100/185], Time: 0.80, lr: [0.0005544429551815861], Loss: 0.176926
+2022-03-30 15:00:55,571 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_464.pth.tar
+2022-03-30 15:01:00,496 Epoch: [465/484] Iter:[0/185], Time: 4.53, lr: [0.0005426470112488497], Loss: 0.145800
+2022-03-30 15:02:16,764 Epoch: [465/484] Iter:[100/185], Time: 0.80, lr: [0.0005287328041688259], Loss: 0.175931
+2022-03-30 15:03:19,577 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_465.pth.tar
+2022-03-30 15:03:24,450 Epoch: [466/484] Iter:[0/185], Time: 4.49, lr: [0.0005168736934759387], Loss: 0.149757
+2022-03-30 15:04:39,971 Epoch: [466/484] Iter:[100/185], Time: 0.79, lr: [0.0005028829242086806], Loss: 0.182755
+2022-03-30 15:05:42,747 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_466.pth.tar
+2022-03-30 15:05:47,607 Epoch: [467/484] Iter:[0/185], Time: 4.50, lr: [0.0004909567142616703], Loss: 0.178356
+2022-03-30 15:07:03,513 Epoch: [467/484] Iter:[100/185], Time: 0.80, lr: [0.0004768844772464037], Loss: 0.185138
+2022-03-30 15:08:06,522 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_467.pth.tar
+2022-03-30 15:08:11,359 Epoch: [468/484] Iter:[0/185], Time: 4.48, lr: [0.0004648867399628546], Loss: 0.144054
+2022-03-30 15:09:26,774 Epoch: [468/484] Iter:[100/185], Time: 0.79, lr: [0.0004507274922299145], Loss: 0.168647
+2022-03-30 15:10:30,943 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_468.pth.tar
+2022-03-30 15:10:35,873 Epoch: [469/484] Iter:[0/185], Time: 4.51, lr: [0.00043865320581891964], Loss: 0.123959
+2022-03-30 15:11:52,754 Epoch: [469/484] Iter:[100/185], Time: 0.81, lr: [0.00042440063660811303], Loss: 0.179526
+2022-03-30 15:12:57,529 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_469.pth.tar
+2022-03-30 15:13:03,129 Epoch: [470/484] Iter:[0/185], Time: 5.22, lr: [0.00041224405999241927], Loss: 0.222474
+2022-03-30 15:14:21,602 Epoch: [470/484] Iter:[100/185], Time: 0.83, lr: [0.0003978909225883057], Loss: 0.168124
+2022-03-30 15:15:25,561 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_470.pth.tar
+2022-03-30 15:15:30,623 Epoch: [471/484] Iter:[0/185], Time: 4.71, lr: [0.0003856454321056124], Loss: 0.149462
+2022-03-30 15:16:48,445 Epoch: [471/484] Iter:[100/185], Time: 0.82, lr: [0.0003711833232258797], Loss: 0.180003
+2022-03-30 15:17:54,007 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_471.pth.tar
+2022-03-30 15:17:59,011 Epoch: [472/484] Iter:[0/185], Time: 4.59, lr: [0.00035884119639225694], Loss: 0.141034
+2022-03-30 15:19:16,791 Epoch: [472/484] Iter:[100/185], Time: 0.82, lr: [0.0003442602610926717], Loss: 0.172012
+2022-03-30 15:20:22,284 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_472.pth.tar
+2022-03-30 15:32:45,417 0 [0.97008905 0.78095979 0.8894561  0.37494509 0.45457224 0.53189028
+ 0.52854319 0.6664485  0.91195012 0.57767976 0.92970879 0.725382
+ 0.45970613 0.91475332 0.41076155 0.5772824  0.26842819 0.38919282
+ 0.68321366] 0.6339454199943338
+2022-03-30 15:32:45,481 Loss: 0.182, MeanIU:  0.6339, Best_mIoU:  0.6339
+2022-03-30 15:32:45,482 [0.97008905 0.78095979 0.8894561  0.37494509 0.45457224 0.53189028
+ 0.52854319 0.6664485  0.91195012 0.57767976 0.92970879 0.725382
+ 0.45970613 0.91475332 0.41076155 0.5772824  0.26842819 0.38919282
+ 0.68321366]
+2022-03-30 15:32:50,540 Epoch: [473/484] Iter:[0/185], Time: 4.72, lr: [0.00033181238423258223], Loss: 0.159881
+2022-03-30 15:34:07,684 Epoch: [473/484] Iter:[100/185], Time: 0.81, lr: [0.00031710091221363586], Loss: 0.176147
+2022-03-30 15:35:12,014 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_473.pth.tar
+2022-03-30 15:35:17,005 Epoch: [474/484] Iter:[0/185], Time: 4.56, lr: [0.0003045363754514388], Loss: 0.148276
+2022-03-30 15:36:34,088 Epoch: [474/484] Iter:[100/185], Time: 0.81, lr: [0.0002896802340989442], Loss: 0.169861
+2022-03-30 15:37:39,485 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_474.pth.tar
+2022-03-30 15:37:44,546 Epoch: [475/484] Iter:[0/185], Time: 4.63, lr: [0.0002769857540753147], Loss: 0.169220
+2022-03-30 15:39:01,971 Epoch: [475/484] Iter:[100/185], Time: 0.81, lr: [0.0002619675670040374], Loss: 0.165802
+2022-03-30 15:40:07,608 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_475.pth.tar
+2022-03-30 15:40:12,673 Epoch: [476/484] Iter:[0/185], Time: 4.61, lr: [0.0002491266354885982], Loss: 0.145856
+2022-03-30 15:41:30,808 Epoch: [476/484] Iter:[100/185], Time: 0.82, lr: [0.0002339245467789092], Loss: 0.178807
+2022-03-30 15:42:36,453 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_476.pth.tar
+2022-03-30 15:42:41,460 Epoch: [477/484] Iter:[0/185], Time: 4.61, lr: [0.00022091612179404727], Loss: 0.149297
+2022-03-30 15:43:59,586 Epoch: [477/484] Iter:[100/185], Time: 0.82, lr: [0.0002055018489644584], Loss: 0.171466
+2022-03-30 15:45:04,940 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_477.pth.tar
+2022-03-30 15:45:09,993 Epoch: [478/484] Iter:[0/185], Time: 4.61, lr: [0.00019229823577899684], Loss: 0.201715
+2022-03-30 15:46:28,183 Epoch: [478/484] Iter:[100/185], Time: 0.82, lr: [0.00017663381755341897], Loss: 0.173254
+2022-03-30 15:47:34,096 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_478.pth.tar
+2022-03-30 15:47:39,405 Epoch: [479/484] Iter:[0/185], Time: 4.75, lr: [0.0001631970027929206], Loss: 0.110254
+2022-03-30 15:48:57,405 Epoch: [479/484] Iter:[100/185], Time: 0.82, lr: [0.00014722893570535812], Loss: 0.175873
+2022-03-30 15:50:03,341 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_479.pth.tar
+2022-03-30 15:50:08,308 Epoch: [480/484] Iter:[0/185], Time: 4.57, lr: [0.00013350365836381595], Loss: 0.149908
+2022-03-30 15:51:26,543 Epoch: [480/484] Iter:[100/185], Time: 0.82, lr: [0.00011715116062547316], Loss: 0.161313
+2022-03-30 15:52:33,224 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_480.pth.tar
+2022-03-30 15:52:38,481 Epoch: [481/484] Iter:[0/185], Time: 4.89, lr: [0.00010305007300023879], Loss: 0.149584
+2022-03-30 15:53:56,531 Epoch: [481/484] Iter:[100/185], Time: 0.82, lr: [8.617769542497998e-05], Loss: 0.173741
+2022-03-30 15:55:01,556 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_481.pth.tar
+2022-03-30 15:55:06,669 Epoch: [482/484] Iter:[0/185], Time: 4.61, lr: [7.154283909292469e-05], Loss: 0.240257
+2022-03-30 15:56:24,701 Epoch: [482/484] Iter:[100/185], Time: 0.82, lr: [5.3878067085204614e-05], Loss: 0.169693
+2022-03-30 15:57:30,667 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_482.pth.tar
+2022-03-30 15:57:35,535 Epoch: [483/484] Iter:[0/185], Time: 4.42, lr: [3.833885818715131e-05], Loss: 0.213144
+2022-03-30 15:58:52,660 Epoch: [483/484] Iter:[100/185], Time: 0.81, lr: [1.9039767995944636e-05], Loss: 0.168170
+2022-03-30 15:59:57,731 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_483.pth.tar
+2022-03-30 15:59:57,874 Hours: 3
+2022-03-30 15:59:57,874 Done

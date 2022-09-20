@@ -1,0 +1,153 @@
+2022-03-29 00:04:29,218 Namespace(cfg='experiments/CS_W18_smallv1_Scratch.yaml', seed=304, local_rank=0, opts=[])
+2022-03-29 00:04:29,218 AUTO_RESUME: False
+CUDNN:
+  BENCHMARK: True
+  DETERMINISTIC: False
+  ENABLED: True
+DATASET:
+  DATASET: cityscapes
+  EXTRA_TRAIN_SET: 
+  NUM_CLASSES: 19
+  ROOT: data/
+  TEST_SET: list/cityscapes/val.lst
+  TRAIN_SET: list/cityscapes/train.lst
+DEBUG:
+  DEBUG: False
+  SAVE_BATCH_IMAGES_GT: False
+  SAVE_BATCH_IMAGES_PRED: False
+  SAVE_HEATMAPS_GT: False
+  SAVE_HEATMAPS_PRED: False
+GPUS: (0,)
+LOG_DIR: log
+LOSS:
+  BALANCE_WEIGHTS: [1]
+  CLASS_BALANCE: True
+  OHEMKEEP: 131072
+  OHEMTHRES: 0.9
+  USE_OHEM: False
+MODEL:
+  ALIGN_CORNERS: True
+  EXTRA:
+    FINAL_CONV_KERNEL: 1
+    STAGE1:
+      BLOCK: BOTTLENECK
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [1]
+      NUM_CHANNELS: [32]
+      NUM_MODULES: 1
+      NUM_RANCHES: 1
+    STAGE2:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2]
+      NUM_BRANCHES: 2
+      NUM_CHANNELS: [16, 32]
+      NUM_MODULES: 1
+    STAGE3:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2, 2]
+      NUM_BRANCHES: 3
+      NUM_CHANNELS: [16, 32, 64]
+      NUM_MODULES: 1
+    STAGE4:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2, 2, 2]
+      NUM_BRANCHES: 4
+      NUM_CHANNELS: [16, 32, 64, 128]
+      NUM_MODULES: 1
+  NAME: seg_hrnet
+  NUM_OUTPUTS: 1
+  OCR:
+    DROPOUT: 0.05
+    KEY_CHANNELS: 256
+    MID_CHANNELS: 512
+    SCALE: 1
+  PRETRAINED: 
+OUTPUT_DIR: output
+PIN_MEMORY: True
+PRINT_FREQ: 100
+RANK: 0
+TEST:
+  BASE_SIZE: 2048
+  BATCH_SIZE_PER_GPU: 3
+  FLIP_TEST: False
+  IMAGE_SIZE: [2048, 1024]
+  MODEL_FILE: 
+  MULTI_SCALE: False
+  NUM_SAMPLES: 0
+  OUTPUT_INDEX: -1
+  SCALE_LIST: [1]
+TRAIN:
+  BASE_SIZE: 2048
+  BATCH_SIZE_PER_GPU: 16
+  BEGIN_EPOCH: 0
+  DOWNSAMPLERATE: 1
+  END_EPOCH: 484
+  EXTRA_EPOCH: 0
+  EXTRA_LR: 0.001
+  FLIP: True
+  FREEZE_EPOCHS: -1
+  FREEZE_LAYERS: 
+  IGNORE_LABEL: 255
+  IMAGE_SIZE: [1024, 512]
+  LR: 0.01
+  LR_FACTOR: 0.1
+  LR_STEP: [90, 110]
+  MOMENTUM: 0.9
+  MULTI_SCALE: True
+  NESTEROV: False
+  NONBACKBONE_KEYWORDS: []
+  NONBACKBONE_MULT: 10
+  NUM_SAMPLES: 0
+  OPTIMIZER: sgd
+  RANDOM_BRIGHTNESS: False
+  RANDOM_BRIGHTNESS_SHIFT_VALUE: 10
+  RESUME: True
+  SCALE_FACTOR: 16
+  SHUFFLE: True
+  WD: 0.0005
+WORKERS: 3
+2022-03-29 00:04:29,248 => init weights from normal distribution
+2022-03-29 00:04:38,561 Epoch: [0/484] Iter:[0/185], Time: 9.15, lr: [0.01], Loss: 2.952793
+2022-03-29 00:05:52,925 Epoch: [0/484] Iter:[100/185], Time: 0.83, lr: [0.00998994806480388], Loss: 1.526289
+2022-03-29 00:06:56,663 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_0.pth.tar
+2022-03-29 00:18:56,991 0 [0.63303623 0.         0.31300981 0.         0.         0.
+ 0.         0.         0.00764262 0.         0.51030539 0.
+ 0.         0.11050446 0.         0.         0.         0.
+ 0.        ] 0.08286834267802076
+2022-03-29 00:18:57,048 Loss: 1.629, MeanIU:  0.0829, Best_mIoU:  0.0829
+2022-03-29 00:18:57,048 [0.63303623 0.         0.31300981 0.         0.         0.
+ 0.         0.         0.00764262 0.         0.51030539 0.
+ 0.         0.11050446 0.         0.         0.         0.
+ 0.        ]
+2022-03-29 00:19:02,063 Epoch: [1/484] Iter:[0/185], Time: 4.68, lr: [0.009981403036245477], Loss: 1.209041
+2022-03-29 00:20:18,089 Epoch: [1/484] Iter:[100/185], Time: 0.80, lr: [0.00997134902067651], Loss: 1.174850
+2022-03-29 00:21:23,299 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_1.pth.tar
+2022-03-29 00:33:45,922 0 [7.09268336e-01 5.98427648e-03 2.54085235e-01 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+ 4.88608040e-01 6.87894718e-04 4.35795942e-01 0.00000000e+00
+ 0.00000000e+00 2.15493859e-01 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00 0.00000000e+00] 0.11104860967628415
+2022-03-29 00:33:45,987 Loss: 1.287, MeanIU:  0.1110, Best_mIoU:  0.1110
+2022-03-29 00:33:45,987 [7.09268336e-01 5.98427648e-03 2.54085235e-01 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+ 4.88608040e-01 6.87894718e-04 4.35795942e-01 0.00000000e+00
+ 0.00000000e+00 2.15493859e-01 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00 0.00000000e+00]
+2022-03-29 00:33:51,053 Epoch: [2/484] Iter:[0/185], Time: 4.63, lr: [0.009962802221786402], Loss: 1.323045
+2022-03-29 00:35:07,866 Epoch: [2/484] Iter:[100/185], Time: 0.81, lr: [0.009952746121098612], Loss: 1.087084
+2022-03-29 00:36:13,761 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_2.pth.tar
+2022-03-29 00:48:35,856 0 [0.78635701 0.10697057 0.46912196 0.         0.         0.
+ 0.         0.         0.55502521 0.06974615 0.55526645 0.
+ 0.         0.17411964 0.         0.         0.         0.
+ 0.        ] 0.14297931537
+2022-03-29 00:48:35,922 Loss: 1.055, MeanIU:  0.1430, Best_mIoU:  0.1430
+2022-03-29 00:48:35,923 [0.78635701 0.10697057 0.46912196 0.         0.         0.
+ 0.         0.         0.55502521 0.06974615 0.55526645 0.
+ 0.         0.17411964 0.         0.         0.         0.
+ 0.        ]
+2022-03-29 00:48:40,956 Epoch: [3/484] Iter:[0/185], Time: 4.64, lr: [0.009944197547833935], Loss: 0.706873
+2022-03-29 00:49:58,406 Epoch: [3/484] Iter:[100/185], Time: 0.82, lr: [0.009934139357260638], Loss: 0.972990
+2022-03-29 00:51:04,072 => saving checkpoint to output\cityscapes\CS_W18_smallv1_Scratchcheckpoint_3.pth.tar

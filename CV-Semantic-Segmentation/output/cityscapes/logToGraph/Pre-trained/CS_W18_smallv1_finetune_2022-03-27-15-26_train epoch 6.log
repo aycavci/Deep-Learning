@@ -1,0 +1,550 @@
+2022-03-27 15:26:35,587 Namespace(cfg='experiments/CS_W18_smallv1_finetune.yaml', seed=304, local_rank=0, opts=[])
+2022-03-27 15:26:35,587 AUTO_RESUME: False
+CUDNN:
+  BENCHMARK: True
+  DETERMINISTIC: False
+  ENABLED: True
+DATASET:
+  DATASET: cityscapes
+  EXTRA_TRAIN_SET: 
+  NUM_CLASSES: 19
+  ROOT: data/
+  TEST_SET: list/cityscapes/val.lst
+  TRAIN_SET: list/cityscapes/train.lst
+DEBUG:
+  DEBUG: False
+  SAVE_BATCH_IMAGES_GT: False
+  SAVE_BATCH_IMAGES_PRED: False
+  SAVE_HEATMAPS_GT: False
+  SAVE_HEATMAPS_PRED: False
+GPUS: (0,)
+LOG_DIR: log
+LOSS:
+  BALANCE_WEIGHTS: [1]
+  CLASS_BALANCE: True
+  OHEMKEEP: 131072
+  OHEMTHRES: 0.9
+  USE_OHEM: False
+MODEL:
+  ALIGN_CORNERS: True
+  EXTRA:
+    FINAL_CONV_KERNEL: 1
+    STAGE1:
+      BLOCK: BOTTLENECK
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [1]
+      NUM_CHANNELS: [32]
+      NUM_MODULES: 1
+      NUM_RANCHES: 1
+    STAGE2:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2]
+      NUM_BRANCHES: 2
+      NUM_CHANNELS: [16, 32]
+      NUM_MODULES: 1
+    STAGE3:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2, 2]
+      NUM_BRANCHES: 3
+      NUM_CHANNELS: [16, 32, 64]
+      NUM_MODULES: 1
+    STAGE4:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [2, 2, 2, 2]
+      NUM_BRANCHES: 4
+      NUM_CHANNELS: [16, 32, 64, 128]
+      NUM_MODULES: 1
+  NAME: seg_hrnet
+  NUM_OUTPUTS: 1
+  OCR:
+    DROPOUT: 0.05
+    KEY_CHANNELS: 256
+    MID_CHANNELS: 512
+    SCALE: 1
+  PRETRAINED: pretrained_models/hrnet_w18_small_model_v1.pth
+OUTPUT_DIR: output
+PIN_MEMORY: True
+PRINT_FREQ: 100
+RANK: 0
+TEST:
+  BASE_SIZE: 2048
+  BATCH_SIZE_PER_GPU: 3
+  FLIP_TEST: False
+  IMAGE_SIZE: [2048, 1024]
+  MODEL_FILE: 
+  MULTI_SCALE: False
+  NUM_SAMPLES: 0
+  OUTPUT_INDEX: -1
+  SCALE_LIST: [1]
+TRAIN:
+  BASE_SIZE: 2048
+  BATCH_SIZE_PER_GPU: 16
+  BEGIN_EPOCH: 0
+  DOWNSAMPLERATE: 1
+  END_EPOCH: 484
+  EXTRA_EPOCH: 0
+  EXTRA_LR: 0.001
+  FLIP: True
+  FREEZE_EPOCHS: -1
+  FREEZE_LAYERS: 
+  IGNORE_LABEL: 255
+  IMAGE_SIZE: [1024, 512]
+  LR: 0.01
+  LR_FACTOR: 0.1
+  LR_STEP: [90, 110]
+  MOMENTUM: 0.9
+  MULTI_SCALE: True
+  NESTEROV: False
+  NONBACKBONE_KEYWORDS: []
+  NONBACKBONE_MULT: 10
+  NUM_SAMPLES: 0
+  OPTIMIZER: sgd
+  RANDOM_BRIGHTNESS: False
+  RANDOM_BRIGHTNESS_SHIFT_VALUE: 10
+  RESUME: True
+  SCALE_FACTOR: 16
+  SHUFFLE: True
+  WD: 0.0005
+WORKERS: 3
+2022-03-27 15:26:35,615 => init weights from normal distribution
+2022-03-27 15:26:35,795 => loading pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,797 => loading conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,797 => loading bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,797 => loading bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,797 => loading bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,797 => loading bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,798 => loading bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,798 => loading conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,798 => loading bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,798 => loading bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,798 => loading bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,798 => loading bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,798 => loading bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,798 => loading layer1.0.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,799 => loading layer1.0.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,799 => loading layer1.0.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,799 => loading layer1.0.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,799 => loading layer1.0.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,799 => loading layer1.0.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,799 => loading layer1.0.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,800 => loading layer1.0.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,800 => loading layer1.0.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,800 => loading layer1.0.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,800 => loading layer1.0.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,800 => loading layer1.0.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,800 => loading layer1.0.conv3.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,800 => loading layer1.0.bn3.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,801 => loading layer1.0.bn3.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,801 => loading layer1.0.bn3.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,801 => loading layer1.0.bn3.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,801 => loading layer1.0.bn3.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,801 => loading layer1.0.downsample.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,801 => loading layer1.0.downsample.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,801 => loading layer1.0.downsample.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,802 => loading layer1.0.downsample.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,802 => loading layer1.0.downsample.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,802 => loading layer1.0.downsample.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,802 => loading transition1.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,802 => loading transition1.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,802 => loading transition1.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,802 => loading transition1.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,803 => loading transition1.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,803 => loading transition1.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,803 => loading transition1.1.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,803 => loading transition1.1.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,803 => loading transition1.1.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,803 => loading transition1.1.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,803 => loading transition1.1.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,804 => loading transition1.1.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,804 => loading stage2.0.branches.0.0.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,804 => loading stage2.0.branches.0.0.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,804 => loading stage2.0.branches.0.0.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,804 => loading stage2.0.branches.0.0.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,804 => loading stage2.0.branches.0.0.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,804 => loading stage2.0.branches.0.0.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,804 => loading stage2.0.branches.0.0.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,804 => loading stage2.0.branches.0.0.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,805 => loading stage2.0.branches.0.0.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,805 => loading stage2.0.branches.0.0.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,805 => loading stage2.0.branches.0.0.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,805 => loading stage2.0.branches.0.0.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,805 => loading stage2.0.branches.0.1.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,805 => loading stage2.0.branches.0.1.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,805 => loading stage2.0.branches.0.1.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,805 => loading stage2.0.branches.0.1.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,806 => loading stage2.0.branches.0.1.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,806 => loading stage2.0.branches.0.1.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,806 => loading stage2.0.branches.0.1.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,806 => loading stage2.0.branches.0.1.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,806 => loading stage2.0.branches.0.1.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,806 => loading stage2.0.branches.0.1.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,806 => loading stage2.0.branches.0.1.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,807 => loading stage2.0.branches.0.1.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,807 => loading stage2.0.branches.1.0.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,807 => loading stage2.0.branches.1.0.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,807 => loading stage2.0.branches.1.0.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,807 => loading stage2.0.branches.1.0.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,807 => loading stage2.0.branches.1.0.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,808 => loading stage2.0.branches.1.0.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,808 => loading stage2.0.branches.1.0.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,808 => loading stage2.0.branches.1.0.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,808 => loading stage2.0.branches.1.0.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,808 => loading stage2.0.branches.1.0.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,808 => loading stage2.0.branches.1.0.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,808 => loading stage2.0.branches.1.0.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,808 => loading stage2.0.branches.1.1.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,809 => loading stage2.0.branches.1.1.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,809 => loading stage2.0.branches.1.1.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,809 => loading stage2.0.branches.1.1.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,809 => loading stage2.0.branches.1.1.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,809 => loading stage2.0.branches.1.1.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,809 => loading stage2.0.branches.1.1.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,809 => loading stage2.0.branches.1.1.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,810 => loading stage2.0.branches.1.1.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,810 => loading stage2.0.branches.1.1.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,810 => loading stage2.0.branches.1.1.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,810 => loading stage2.0.branches.1.1.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,810 => loading stage2.0.fuse_layers.0.1.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,810 => loading stage2.0.fuse_layers.0.1.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,810 => loading stage2.0.fuse_layers.0.1.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,811 => loading stage2.0.fuse_layers.0.1.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,811 => loading stage2.0.fuse_layers.0.1.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,811 => loading stage2.0.fuse_layers.0.1.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,811 => loading stage2.0.fuse_layers.1.0.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,811 => loading stage2.0.fuse_layers.1.0.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,811 => loading stage2.0.fuse_layers.1.0.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,811 => loading stage2.0.fuse_layers.1.0.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,811 => loading stage2.0.fuse_layers.1.0.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,812 => loading stage2.0.fuse_layers.1.0.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,812 => loading transition2.2.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,812 => loading transition2.2.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,812 => loading transition2.2.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,812 => loading transition2.2.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,812 => loading transition2.2.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,812 => loading transition2.2.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,813 => loading stage3.0.branches.0.0.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,813 => loading stage3.0.branches.0.0.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,813 => loading stage3.0.branches.0.0.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,813 => loading stage3.0.branches.0.0.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,813 => loading stage3.0.branches.0.0.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,813 => loading stage3.0.branches.0.0.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,813 => loading stage3.0.branches.0.0.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,813 => loading stage3.0.branches.0.0.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,814 => loading stage3.0.branches.0.0.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,814 => loading stage3.0.branches.0.0.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,814 => loading stage3.0.branches.0.0.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,814 => loading stage3.0.branches.0.0.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,814 => loading stage3.0.branches.0.1.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,814 => loading stage3.0.branches.0.1.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,814 => loading stage3.0.branches.0.1.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,815 => loading stage3.0.branches.0.1.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,815 => loading stage3.0.branches.0.1.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,815 => loading stage3.0.branches.0.1.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,815 => loading stage3.0.branches.0.1.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,815 => loading stage3.0.branches.0.1.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,816 => loading stage3.0.branches.0.1.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,816 => loading stage3.0.branches.0.1.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,816 => loading stage3.0.branches.0.1.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,816 => loading stage3.0.branches.0.1.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,816 => loading stage3.0.branches.1.0.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,817 => loading stage3.0.branches.1.0.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,817 => loading stage3.0.branches.1.0.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,817 => loading stage3.0.branches.1.0.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,817 => loading stage3.0.branches.1.0.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,817 => loading stage3.0.branches.1.0.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,817 => loading stage3.0.branches.1.0.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,818 => loading stage3.0.branches.1.0.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,818 => loading stage3.0.branches.1.0.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,818 => loading stage3.0.branches.1.0.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,818 => loading stage3.0.branches.1.0.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,818 => loading stage3.0.branches.1.0.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,819 => loading stage3.0.branches.1.1.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,819 => loading stage3.0.branches.1.1.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,819 => loading stage3.0.branches.1.1.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,819 => loading stage3.0.branches.1.1.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,819 => loading stage3.0.branches.1.1.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,819 => loading stage3.0.branches.1.1.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,819 => loading stage3.0.branches.1.1.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,820 => loading stage3.0.branches.1.1.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,820 => loading stage3.0.branches.1.1.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,820 => loading stage3.0.branches.1.1.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,820 => loading stage3.0.branches.1.1.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,820 => loading stage3.0.branches.1.1.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,820 => loading stage3.0.branches.2.0.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,820 => loading stage3.0.branches.2.0.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,821 => loading stage3.0.branches.2.0.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,821 => loading stage3.0.branches.2.0.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,821 => loading stage3.0.branches.2.0.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,821 => loading stage3.0.branches.2.0.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,821 => loading stage3.0.branches.2.0.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,821 => loading stage3.0.branches.2.0.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,821 => loading stage3.0.branches.2.0.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,821 => loading stage3.0.branches.2.0.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,822 => loading stage3.0.branches.2.0.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,822 => loading stage3.0.branches.2.0.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,822 => loading stage3.0.branches.2.1.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,822 => loading stage3.0.branches.2.1.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,822 => loading stage3.0.branches.2.1.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,823 => loading stage3.0.branches.2.1.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,823 => loading stage3.0.branches.2.1.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,823 => loading stage3.0.branches.2.1.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,823 => loading stage3.0.branches.2.1.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,823 => loading stage3.0.branches.2.1.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,823 => loading stage3.0.branches.2.1.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,823 => loading stage3.0.branches.2.1.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,823 => loading stage3.0.branches.2.1.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,823 => loading stage3.0.branches.2.1.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,824 => loading stage3.0.fuse_layers.0.1.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,824 => loading stage3.0.fuse_layers.0.1.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,824 => loading stage3.0.fuse_layers.0.1.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,824 => loading stage3.0.fuse_layers.0.1.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,824 => loading stage3.0.fuse_layers.0.1.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,824 => loading stage3.0.fuse_layers.0.1.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,824 => loading stage3.0.fuse_layers.0.2.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,825 => loading stage3.0.fuse_layers.0.2.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,825 => loading stage3.0.fuse_layers.0.2.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,825 => loading stage3.0.fuse_layers.0.2.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,825 => loading stage3.0.fuse_layers.0.2.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,825 => loading stage3.0.fuse_layers.0.2.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,825 => loading stage3.0.fuse_layers.1.0.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,825 => loading stage3.0.fuse_layers.1.0.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,826 => loading stage3.0.fuse_layers.1.0.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,826 => loading stage3.0.fuse_layers.1.0.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,826 => loading stage3.0.fuse_layers.1.0.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,826 => loading stage3.0.fuse_layers.1.0.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,826 => loading stage3.0.fuse_layers.1.2.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,826 => loading stage3.0.fuse_layers.1.2.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,826 => loading stage3.0.fuse_layers.1.2.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,827 => loading stage3.0.fuse_layers.1.2.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,827 => loading stage3.0.fuse_layers.1.2.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,827 => loading stage3.0.fuse_layers.1.2.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,827 => loading stage3.0.fuse_layers.2.0.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,827 => loading stage3.0.fuse_layers.2.0.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,827 => loading stage3.0.fuse_layers.2.0.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,827 => loading stage3.0.fuse_layers.2.0.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,827 => loading stage3.0.fuse_layers.2.0.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,828 => loading stage3.0.fuse_layers.2.0.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,828 => loading stage3.0.fuse_layers.2.0.1.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,828 => loading stage3.0.fuse_layers.2.0.1.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,828 => loading stage3.0.fuse_layers.2.0.1.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,828 => loading stage3.0.fuse_layers.2.0.1.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,828 => loading stage3.0.fuse_layers.2.0.1.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,828 => loading stage3.0.fuse_layers.2.0.1.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,829 => loading stage3.0.fuse_layers.2.1.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,829 => loading stage3.0.fuse_layers.2.1.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,829 => loading stage3.0.fuse_layers.2.1.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,829 => loading stage3.0.fuse_layers.2.1.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,829 => loading stage3.0.fuse_layers.2.1.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,829 => loading stage3.0.fuse_layers.2.1.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,829 => loading transition3.3.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,829 => loading transition3.3.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,830 => loading transition3.3.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,830 => loading transition3.3.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,830 => loading transition3.3.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,830 => loading transition3.3.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,830 => loading stage4.0.branches.0.0.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,830 => loading stage4.0.branches.0.0.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,830 => loading stage4.0.branches.0.0.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,830 => loading stage4.0.branches.0.0.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,831 => loading stage4.0.branches.0.0.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,831 => loading stage4.0.branches.0.0.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,831 => loading stage4.0.branches.0.0.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,831 => loading stage4.0.branches.0.0.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,831 => loading stage4.0.branches.0.0.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,831 => loading stage4.0.branches.0.0.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,832 => loading stage4.0.branches.0.0.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,832 => loading stage4.0.branches.0.0.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,832 => loading stage4.0.branches.0.1.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,832 => loading stage4.0.branches.0.1.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,832 => loading stage4.0.branches.0.1.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,832 => loading stage4.0.branches.0.1.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,832 => loading stage4.0.branches.0.1.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,832 => loading stage4.0.branches.0.1.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,833 => loading stage4.0.branches.0.1.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,833 => loading stage4.0.branches.0.1.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,833 => loading stage4.0.branches.0.1.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,833 => loading stage4.0.branches.0.1.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,833 => loading stage4.0.branches.0.1.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,833 => loading stage4.0.branches.0.1.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,833 => loading stage4.0.branches.1.0.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,834 => loading stage4.0.branches.1.0.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,834 => loading stage4.0.branches.1.0.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,834 => loading stage4.0.branches.1.0.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,834 => loading stage4.0.branches.1.0.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,834 => loading stage4.0.branches.1.0.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,834 => loading stage4.0.branches.1.0.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,834 => loading stage4.0.branches.1.0.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,834 => loading stage4.0.branches.1.0.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,835 => loading stage4.0.branches.1.0.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,835 => loading stage4.0.branches.1.0.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,835 => loading stage4.0.branches.1.0.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,835 => loading stage4.0.branches.1.1.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,835 => loading stage4.0.branches.1.1.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,835 => loading stage4.0.branches.1.1.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,835 => loading stage4.0.branches.1.1.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,836 => loading stage4.0.branches.1.1.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,836 => loading stage4.0.branches.1.1.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,836 => loading stage4.0.branches.1.1.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,836 => loading stage4.0.branches.1.1.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,836 => loading stage4.0.branches.1.1.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,836 => loading stage4.0.branches.1.1.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,836 => loading stage4.0.branches.1.1.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,836 => loading stage4.0.branches.1.1.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,837 => loading stage4.0.branches.2.0.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,837 => loading stage4.0.branches.2.0.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,837 => loading stage4.0.branches.2.0.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,837 => loading stage4.0.branches.2.0.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,837 => loading stage4.0.branches.2.0.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,837 => loading stage4.0.branches.2.0.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,837 => loading stage4.0.branches.2.0.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,837 => loading stage4.0.branches.2.0.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,838 => loading stage4.0.branches.2.0.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,838 => loading stage4.0.branches.2.0.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,838 => loading stage4.0.branches.2.0.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,838 => loading stage4.0.branches.2.0.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,838 => loading stage4.0.branches.2.1.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,838 => loading stage4.0.branches.2.1.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,838 => loading stage4.0.branches.2.1.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,838 => loading stage4.0.branches.2.1.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,839 => loading stage4.0.branches.2.1.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,839 => loading stage4.0.branches.2.1.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,839 => loading stage4.0.branches.2.1.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,839 => loading stage4.0.branches.2.1.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,839 => loading stage4.0.branches.2.1.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,839 => loading stage4.0.branches.2.1.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,839 => loading stage4.0.branches.2.1.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,840 => loading stage4.0.branches.2.1.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,840 => loading stage4.0.branches.3.0.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,840 => loading stage4.0.branches.3.0.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,840 => loading stage4.0.branches.3.0.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,840 => loading stage4.0.branches.3.0.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,840 => loading stage4.0.branches.3.0.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,840 => loading stage4.0.branches.3.0.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,840 => loading stage4.0.branches.3.0.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,841 => loading stage4.0.branches.3.0.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,841 => loading stage4.0.branches.3.0.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,841 => loading stage4.0.branches.3.0.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,841 => loading stage4.0.branches.3.0.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,841 => loading stage4.0.branches.3.0.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,841 => loading stage4.0.branches.3.1.conv1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,841 => loading stage4.0.branches.3.1.bn1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,841 => loading stage4.0.branches.3.1.bn1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,842 => loading stage4.0.branches.3.1.bn1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,842 => loading stage4.0.branches.3.1.bn1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,842 => loading stage4.0.branches.3.1.bn1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,842 => loading stage4.0.branches.3.1.conv2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,842 => loading stage4.0.branches.3.1.bn2.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,842 => loading stage4.0.branches.3.1.bn2.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,842 => loading stage4.0.branches.3.1.bn2.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,842 => loading stage4.0.branches.3.1.bn2.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,843 => loading stage4.0.branches.3.1.bn2.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,843 => loading stage4.0.fuse_layers.0.1.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,843 => loading stage4.0.fuse_layers.0.1.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,843 => loading stage4.0.fuse_layers.0.1.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,843 => loading stage4.0.fuse_layers.0.1.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,843 => loading stage4.0.fuse_layers.0.1.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,844 => loading stage4.0.fuse_layers.0.1.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,844 => loading stage4.0.fuse_layers.0.2.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,844 => loading stage4.0.fuse_layers.0.2.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,844 => loading stage4.0.fuse_layers.0.2.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,844 => loading stage4.0.fuse_layers.0.2.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,844 => loading stage4.0.fuse_layers.0.2.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,845 => loading stage4.0.fuse_layers.0.2.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,845 => loading stage4.0.fuse_layers.0.3.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,845 => loading stage4.0.fuse_layers.0.3.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,845 => loading stage4.0.fuse_layers.0.3.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,845 => loading stage4.0.fuse_layers.0.3.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,846 => loading stage4.0.fuse_layers.0.3.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,846 => loading stage4.0.fuse_layers.0.3.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,846 => loading stage4.0.fuse_layers.1.0.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,846 => loading stage4.0.fuse_layers.1.0.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,846 => loading stage4.0.fuse_layers.1.0.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,847 => loading stage4.0.fuse_layers.1.0.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,847 => loading stage4.0.fuse_layers.1.0.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,847 => loading stage4.0.fuse_layers.1.0.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,847 => loading stage4.0.fuse_layers.1.2.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,847 => loading stage4.0.fuse_layers.1.2.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,848 => loading stage4.0.fuse_layers.1.2.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,848 => loading stage4.0.fuse_layers.1.2.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,848 => loading stage4.0.fuse_layers.1.2.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,848 => loading stage4.0.fuse_layers.1.2.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,848 => loading stage4.0.fuse_layers.1.3.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,849 => loading stage4.0.fuse_layers.1.3.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,849 => loading stage4.0.fuse_layers.1.3.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,849 => loading stage4.0.fuse_layers.1.3.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,849 => loading stage4.0.fuse_layers.1.3.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,849 => loading stage4.0.fuse_layers.1.3.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,850 => loading stage4.0.fuse_layers.2.0.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,850 => loading stage4.0.fuse_layers.2.0.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,850 => loading stage4.0.fuse_layers.2.0.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,850 => loading stage4.0.fuse_layers.2.0.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,850 => loading stage4.0.fuse_layers.2.0.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,851 => loading stage4.0.fuse_layers.2.0.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,851 => loading stage4.0.fuse_layers.2.0.1.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,851 => loading stage4.0.fuse_layers.2.0.1.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,851 => loading stage4.0.fuse_layers.2.0.1.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,851 => loading stage4.0.fuse_layers.2.0.1.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,851 => loading stage4.0.fuse_layers.2.0.1.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,851 => loading stage4.0.fuse_layers.2.0.1.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,852 => loading stage4.0.fuse_layers.2.1.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,852 => loading stage4.0.fuse_layers.2.1.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,852 => loading stage4.0.fuse_layers.2.1.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,852 => loading stage4.0.fuse_layers.2.1.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,852 => loading stage4.0.fuse_layers.2.1.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,853 => loading stage4.0.fuse_layers.2.1.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,853 => loading stage4.0.fuse_layers.2.3.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,853 => loading stage4.0.fuse_layers.2.3.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,853 => loading stage4.0.fuse_layers.2.3.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,853 => loading stage4.0.fuse_layers.2.3.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,853 => loading stage4.0.fuse_layers.2.3.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,854 => loading stage4.0.fuse_layers.2.3.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,854 => loading stage4.0.fuse_layers.3.0.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,854 => loading stage4.0.fuse_layers.3.0.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,854 => loading stage4.0.fuse_layers.3.0.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,854 => loading stage4.0.fuse_layers.3.0.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,854 => loading stage4.0.fuse_layers.3.0.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,855 => loading stage4.0.fuse_layers.3.0.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,855 => loading stage4.0.fuse_layers.3.0.1.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,855 => loading stage4.0.fuse_layers.3.0.1.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,855 => loading stage4.0.fuse_layers.3.0.1.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,855 => loading stage4.0.fuse_layers.3.0.1.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,855 => loading stage4.0.fuse_layers.3.0.1.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,856 => loading stage4.0.fuse_layers.3.0.1.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,856 => loading stage4.0.fuse_layers.3.0.2.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,856 => loading stage4.0.fuse_layers.3.0.2.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,856 => loading stage4.0.fuse_layers.3.0.2.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,856 => loading stage4.0.fuse_layers.3.0.2.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,857 => loading stage4.0.fuse_layers.3.0.2.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,857 => loading stage4.0.fuse_layers.3.0.2.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,857 => loading stage4.0.fuse_layers.3.1.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,857 => loading stage4.0.fuse_layers.3.1.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,857 => loading stage4.0.fuse_layers.3.1.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,857 => loading stage4.0.fuse_layers.3.1.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,858 => loading stage4.0.fuse_layers.3.1.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,858 => loading stage4.0.fuse_layers.3.1.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,858 => loading stage4.0.fuse_layers.3.1.1.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,858 => loading stage4.0.fuse_layers.3.1.1.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,858 => loading stage4.0.fuse_layers.3.1.1.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,858 => loading stage4.0.fuse_layers.3.1.1.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,859 => loading stage4.0.fuse_layers.3.1.1.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,859 => loading stage4.0.fuse_layers.3.1.1.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,859 => loading stage4.0.fuse_layers.3.2.0.0.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,859 => loading stage4.0.fuse_layers.3.2.0.1.weight pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,859 => loading stage4.0.fuse_layers.3.2.0.1.bias pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,859 => loading stage4.0.fuse_layers.3.2.0.1.running_mean pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,860 => loading stage4.0.fuse_layers.3.2.0.1.running_var pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:35,860 => loading stage4.0.fuse_layers.3.2.0.1.num_batches_tracked pretrained model pretrained_models/hrnet_w18_small_model_v1.pth
+2022-03-27 15:26:36,035 => loaded checkpoint (epoch 3)
+2022-03-27 15:26:45,182 Epoch: [3/484] Iter:[0/185], Time: 9.15, lr: [0.009944197547833935], Loss: 0.283126
+2022-03-27 15:27:58,413 Epoch: [3/484] Iter:[100/185], Time: 0.81, lr: [0.009934139357260638], Loss: 0.364732
+2022-03-27 15:29:01,820 => saving checkpoint to output\cityscapes\CS_W18_smallv1_finetunecheckpoint_4.pth.tar
+2022-03-27 15:29:06,642 Epoch: [4/484] Iter:[0/185], Time: 4.44, lr: [0.00992558900556086], Loss: 0.265660
+2022-03-27 15:30:21,472 Epoch: [4/484] Iter:[100/185], Time: 0.79, lr: [0.009915528720314523], Loss: 0.334296
+2022-03-27 15:31:25,669 => saving checkpoint to output\cityscapes\CS_W18_smallv1_finetunecheckpoint_5.pth.tar
+2022-03-27 15:31:30,612 Epoch: [5/484] Iter:[0/185], Time: 4.58, lr: [0.009906976586101339], Loss: 0.231856
+2022-03-27 15:32:46,346 Epoch: [5/484] Iter:[100/185], Time: 0.80, lr: [0.00989691420137345], Loss: 0.341458
+2022-03-27 15:33:50,000 => saving checkpoint to output\cityscapes\CS_W18_smallv1_finetunecheckpoint_6.pth.tar
+2022-03-27 15:33:54,923 Epoch: [6/484] Iter:[0/185], Time: 4.51, lr: [0.009888360280550665], Loss: 0.556025
